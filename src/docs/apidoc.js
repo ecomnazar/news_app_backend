@@ -9,7 +9,8 @@ const apiDocumentation = {
     servers: [
       {
         // url: 'http://localhost:4003',
-        url: 'http://45.146.167.233:4003',
+        // url: 'http://45.146.167.233:4003',
+        url: 'https://repo.gozle.com.tm/eportalback',
         description: 'Remote Server'
       }
     ],
