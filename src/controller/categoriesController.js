@@ -7,7 +7,7 @@ exports.getCategories = async (req, res) => {
 
 exports.addCategory = async (req, res) => {
     const category = new Categories({
-        name: 'Business'
+        name: req.body.name
     })
     await category.save()
     .then(response => {
@@ -15,5 +15,16 @@ exports.addCategory = async (req, res) => {
     })
     .catch(error => {
         res.send(error)
+    })
+}
+
+exports.deleteCategory = async (req, res) => {
+    const id = req.body.id
+    Categories.deleteOne({_id: id})
+    .then(response => {
+        res.json('success')
+    })
+    .catch(error => {
+        res.json(error)
     })
 }

@@ -1,4 +1,4 @@
-const {getNews, createNew, deleteUser } = require('./users')
+const {getNews, createNew, getCategories, createCategory, deleteNew, deleteCategory } = require('./users')
 
 const apiDocumentation = {
     openapi: '3.0.1',
@@ -8,23 +8,27 @@ const apiDocumentation = {
     },
     servers: [
       {
-        url: 'http://45.146.167.233:4003',
+        url: 'http://localhost:4003',
+        // url: 'http://45.146.167.233:4003',
         description: 'Remote Server'
       }
     ],
     tags: [
       {
-        name: 'Customers Mobile App',
-      },
-      {
-        name: 'Admin Web',
+        name: 'Customer & Admin API',
       }
     ],
     paths: {
-      '/news': {
+      '/api/v1/news': {
         get: getNews,
         post: createNew,
+        delete: deleteNew
       },
+      '/api/v1/categories': {
+        get: getCategories,
+        post: createCategory,
+        delete: deleteCategory
+      }
     }
   };
   

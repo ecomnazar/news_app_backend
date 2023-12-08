@@ -3,8 +3,7 @@ const router = express.Router()
 const newsController = require('../controller/newsController')
 const multer = require('multer')
 
-// ----------------
-
+// set storage to images
 let storage = multer.diskStorage({
     destination: (req, res, cb) => {
         cb(null, 'uploads')
@@ -18,12 +17,14 @@ let upload = multer({
     storage: storage
 }).single('image')
 
-// ----------------
 
 // all news
+
 router.get('/', newsController.getNews)
 
 router.post('/', upload, newsController.addNew)
+
+router.delete('/', newsController.deleteNew)
 
 router.post('/updateView/:id', newsController.updateView)
 

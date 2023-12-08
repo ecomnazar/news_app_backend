@@ -1,16 +1,14 @@
 const AllNews = require('../model/newsModel')
 
 exports.getNews = async (req, res) => {
-    const limit = 10;
-    const page = req.query.page ? parseInt(req.query.page) : 1;
-    
-    
-    if(req.query.id){
+    const limit = 10; // Number of items per page
+    const page = req.query.page ? parseInt(req.query.page) : 1; 
+    if(req.query.category){
         const news = await AllNews.find({
-            category: req.query.id
+            category_name: req.query.category
         }).limit(limit).skip((page - 1) * limit).exec()
         const totalItems = await AllNews.countDocuments({
-            category: req.query.id
+            category_name: req.query.category
         })
         res.json({
             news,
@@ -45,10 +43,22 @@ exports.addNew = async (req, res) => {
     })
 }
 
+exports.deleteNew = (req, res) => {
+    const id = req.body.id
+    AllNews.deleteOne({_id: id})
+    .then(() => {
+        res.json('success')
+    })
+    .catch(error => {
+        res.send(error)
+    })
+}
+
+
 exports.updateView = (req, res) => {
     const id = req.params.id
     AllNews.updateOne({_id: id}, {$inc: {view: 1}})
-    .then(response => {
+    .then(() => {
         res.send('success')
     })
     .catch(error => {

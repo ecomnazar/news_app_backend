@@ -1,7 +1,7 @@
 const AllNews = require('../model/newsModel')
 
 const getNews = {
-    tags: ['Customers Mobile App'],
+    tags: ['Customer & Admin API'],
     description: 'Get all news',
     operationId: 'getNews',
     security: [
@@ -93,10 +93,41 @@ const getNews = {
         },
       },
     },
-  };
-  
+};
+
+const getCategories = {
+  tags: ['Customer & Admin API'],
+  description: 'Get all categories',
+  operationId: 'getCategories',
+  responses: {
+    '201': {
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            properties: {
+              _id: {
+                type: 'string',
+                example: '60564fcb544047cdc3844818',
+              },
+              name: {
+                type: 'string',
+                example: 'Business',
+              },
+              created_at: {
+                type: 'string',
+                example: '2023-11-29T17:59:07.850Z'
+              }
+            },
+          },
+        },
+      },
+    },
+  },
+}
+
 const createNew = {
-    tags: ["Admin Web"], // operation's tag
+    tags: ["Customer & Admin API"], // operation's tag
       description: "Create new", // short desc
       operationId: "createTodo", // unique operation id
       requestBody: {
@@ -151,9 +182,57 @@ const createNew = {
             }
         }
     ],
-  };
+};
 
-  const deleteUser = {
+const createCategory = {
+  tags: ["Customer & Admin API"], // operation's tag
+    description: "Create category", // short desc
+    operationId: "createCategory", // unique operation id
+
+    parameters: [
+      {
+          in: "body",
+          name: "",
+          description: "Request body as following",
+          required: true,
+          schema: {
+              type: "object",
+              properties: {
+                  name: {
+                      type: "string",
+                      example: "Software"
+                  }
+              }
+          }
+      }
+  ],
+};
+
+const deleteNew = {
+  tags: ["Customer & Admin API"], // operation's tag
+  description: "Delete new", // short desc
+  operationId: "deleteNew", // unique operation id
+  parameters: [
+    {
+      in: "body",
+      name: "",
+      description: "Request body as following",
+      required: true,
+      schema: {
+        type: "object",
+        properties: {
+            id: {
+                type: "string",
+                example: "fgsf141231s"
+            }
+        }
+    }
+    }
+  ]
+}
+
+
+const deleteUser = {
     tags: ['Users'],
     description: 'Delete a user',
     operationId: 'deleteUser',
@@ -205,6 +284,29 @@ const createNew = {
         },
       },
     },
-  };
-  
-  module.exports = {getNews, createNew, deleteUser };
+};
+
+const deleteCategory = {
+  tags: ["Customer & Admin API"], // operation's tag
+  description: "Delete category", // short desc
+  operationId: "deleteCategory", // unique operation id
+  parameters: [
+    {
+      in: "body",
+      name: "",
+      description: "Request body as following",
+      required: true,
+      schema: {
+        type: "object",
+        properties: {
+            id: {
+                type: "string",
+                example: "fgsf141231s"
+            }
+        }
+    }
+    }
+  ]
+}
+
+module.exports = {getNews, createNew, deleteUser, getCategories, createCategory, deleteNew, deleteCategory };

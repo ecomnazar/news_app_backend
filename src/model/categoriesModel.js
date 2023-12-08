@@ -5,10 +5,13 @@ const categoriesSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: [true, 'This category already exists']
+    },
+    created_at: {
+        type: Date,
+        default: Date.now
     }
 }, {
-    versionKey: false,
-    timestamps: true
+    versionKey: false
 })
 
 const Categories = mongoose.model('categories', categoriesSchema)
