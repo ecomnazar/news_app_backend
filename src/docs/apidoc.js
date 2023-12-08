@@ -8,8 +8,8 @@ const apiDocumentation = {
     },
     servers: [
       {
-        url: 'http://localhost:4003',
-        // url: 'http://45.146.167.233:4003',
+        // url: 'http://localhost:4003',
+        url: 'http://45.146.167.233:4003',
         description: 'Remote Server'
       }
     ],
