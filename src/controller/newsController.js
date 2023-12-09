@@ -15,7 +15,7 @@ exports.getNews = async (req, res) => {
             totalItems
         })
     } else{
-        const news = await AllNews.find().limit(limit).skip((page - 1) * limit).exec()
+        const news = (await AllNews.find().limit(limit).skip((page - 1) * limit).exec()).reverse()
         const totalItems = await AllNews.countDocuments()
         res.json({
             news,
