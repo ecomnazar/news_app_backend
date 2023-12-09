@@ -43,7 +43,11 @@ const newsSchema = new mongoose.Schema({
     },
     created_at: {
         type: Date,
-        default: Date.now
+        default: function(){
+            const currentDate = newDate()
+            currentDate.setUTCHours(currentDate.getUTCHours() + 5)
+            return currentDate
+        }
     }
 }, {
     versionKey: false,
