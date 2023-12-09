@@ -44,7 +44,7 @@ const newsSchema = new mongoose.Schema({
     created_at: {
         type: Date,
         default: function(){
-            const currentDate = newDate()
+            const currentDate = new Date()
             currentDate.setUTCHours(currentDate.getUTCHours() + 5)
             return currentDate
         }
