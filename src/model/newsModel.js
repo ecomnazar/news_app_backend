@@ -37,6 +37,10 @@ const newsSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    read_time: {
+        type: Number,
+        required: true
+    },
     created_at: {
         type: Date,
         default: Date.now

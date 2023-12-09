@@ -59,6 +59,10 @@ const getNews = {
                   type: 'string',
                   example: 'business',
                 },
+                read_time: {
+                  type: 'number',
+                  example: 5
+                },
                 like: {
                   type: 'number',
                   example: 0

@@ -25,6 +25,7 @@ exports.getNews = async (req, res) => {
 }
 
 exports.addNew = async (req, res) => {
+    const read_time = Math.ceil(req.body.description.split(' ').length / 100) // get from description length
     const item = new AllNews({
         title: req.body.title,
         description: req.body.description,
@@ -32,7 +33,8 @@ exports.addNew = async (req, res) => {
         source_link: req.body.sourceLink,
         source_title: req.body.sourceTitle,
         category_id: req.body.categoryId,
-        category_name: req.body.categoryName
+        category_name: req.body.categoryName,
+        read_time: read_time
     })
     await item.save()
     .then(response => {
