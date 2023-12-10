@@ -1,7 +1,7 @@
 const AllNews = require('../model/newsModel')
 
 exports.getNews = async (req, res) => {
-    const limit = 10; // Number of items per page
+    const limit = 15; // Number of items per page
     const page = req.query.page ? parseInt(req.query.page) : 1; 
     if(req.query.category){
         const news = await AllNews.find({
