@@ -17,10 +17,11 @@ let upload = multer({
     storage: storage
 }).single('image')
 
-
 // all news
 
 router.get('/', newsController.getNews)
+
+router.get('/trend', newsController.getTrendNews) // get trend news
 
 router.post('/', upload, newsController.addNew)
 

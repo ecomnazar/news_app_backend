@@ -99,6 +99,105 @@ const getNews = {
     },
 };
 
+const getTrendNews = {
+  tags: ['Customer & Admin API'],
+  description: 'Get trend news',
+  operationId: 'getTrendNews',
+  security: [
+    {
+      bearerAuth: [],
+    },
+  ],
+  // requestBody: {
+    // content: {
+      // 'application/json': {
+        // schema: {
+        //   $ref: '#/components/schemas/createUserBody',
+        // },
+      // },
+    // },
+    // required: true,
+  // },
+  responses: {
+    '201': {
+      // description: 'User created successfully!',
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            properties: {
+              _id: {
+                type: 'string',
+                example: '60564fcb544047cdc3844818',
+              },
+              title: {
+                type: 'string',
+                example: 'GPT 5 Release',
+              },
+              description: {
+                type: 'string',
+                example: 'Release coming soon...',
+              },
+              image: {
+                type: 'string',
+                example: 'randomimage.png',
+              },
+              source_title: {
+                type: 'string',
+                example: 'source',
+              },
+              source_link: {
+                type: 'string',
+                example: 'source.com',
+              },
+              category_id: {
+                type: 'string',
+                example: 'hgrebrt141er',
+              },
+              category_name: {
+                type: 'string',
+                example: 'business',
+              },
+              read_time: {
+                type: 'number',
+                example: 5
+              },
+              like: {
+                type: 'number',
+                example: 0
+              },
+              view: {
+                type: 'number',
+                example: 0
+              },
+              created_at: {
+                type: 'string',
+                example: '2023-11-29T17:59:07.850Z'
+              }
+            },
+          },
+        },
+      },
+    },
+    '500': {
+      description: 'Internal Server Error',
+      content: {
+        'application/json': {
+          schema: {
+            type: 'object',
+            properties: {
+              message: {
+                type: 'string',
+                example: 'Internal Server Error',
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 const getCategories = {
   tags: ['Customer & Admin API'],
   description: 'Get all categories',
@@ -235,7 +334,6 @@ const deleteNew = {
   ]
 }
 
-
 const deleteUser = {
     tags: ['Users'],
     description: 'Delete a user',
@@ -313,4 +411,4 @@ const deleteCategory = {
   ]
 }
 
-module.exports = {getNews, createNew, deleteUser, getCategories, createCategory, deleteNew, deleteCategory };
+module.exports = {getNews, createNew, deleteUser, getCategories, createCategory, deleteNew, deleteCategory, getTrendNews };

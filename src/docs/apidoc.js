@@ -1,4 +1,4 @@
-const {getNews, createNew, getCategories, createCategory, deleteNew, deleteCategory } = require('./users')
+const {getNews, createNew, getCategories, createCategory, deleteNew, deleteCategory, getTrendNews } = require('./users')
 
 const apiDocumentation = {
     openapi: '3.0.1',
@@ -24,6 +24,9 @@ const apiDocumentation = {
         get: getNews,
         post: createNew,
         delete: deleteNew
+      },
+      '/api/v1/news/trend': {
+        get: getTrendNews,
       },
       '/api/v1/categories': {
         get: getCategories,
