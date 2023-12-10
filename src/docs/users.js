@@ -4,6 +4,7 @@ const getNews = {
     tags: ['Customer & Admin API'],
     description: 'Get all news',
     operationId: 'getNews',
+    summary: 'Get all news',
     security: [
       {
         bearerAuth: [],
@@ -103,6 +104,7 @@ const getTrendNews = {
   tags: ['Customer & Admin API'],
   description: 'Get trend news',
   operationId: 'getTrendNews',
+  summary: 'Get trend news',
   security: [
     {
       bearerAuth: [],
@@ -202,6 +204,7 @@ const getCategories = {
   tags: ['Customer & Admin API'],
   description: 'Get all categories',
   operationId: 'getCategories',
+  summary: 'Get categories',
   responses: {
     '201': {
       content: {
@@ -233,6 +236,7 @@ const createNew = {
     tags: ["Customer & Admin API"], // operation's tag
       description: "Create new", // short desc
       operationId: "createTodo", // unique operation id
+      summary: 'Create new',
       requestBody: {
         // expected request body
         content: {
@@ -291,7 +295,7 @@ const createCategory = {
   tags: ["Customer & Admin API"], // operation's tag
     description: "Create category", // short desc
     operationId: "createCategory", // unique operation id
-
+    summary: 'Create category',
     parameters: [
       {
           in: "body",
@@ -315,6 +319,7 @@ const deleteNew = {
   tags: ["Customer & Admin API"], // operation's tag
   description: "Delete new", // short desc
   operationId: "deleteNew", // unique operation id
+  summary: 'Delete specific new',
   parameters: [
     {
       in: "body",
@@ -392,6 +397,7 @@ const deleteCategory = {
   tags: ["Customer & Admin API"], // operation's tag
   description: "Delete category", // short desc
   operationId: "deleteCategory", // unique operation id
+  summary: 'Delete specific category',
   parameters: [
     {
       in: "body",
