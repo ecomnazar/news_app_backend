@@ -27,6 +27,6 @@ router.post('/', upload, newsController.addNew)
 
 router.delete('/', newsController.deleteNew)
 
-router.post('/updateView/:id', newsController.updateView)
+router.put('/updateView/:id', newsController.updateView)
 
 module.exports = router

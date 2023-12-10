@@ -61,7 +61,6 @@ exports.deleteNew = (req, res) => {
     })
 }
 
-
 exports.updateView = (req, res) => {
     const id = req.params.id
     AllNews.updateOne({_id: id}, {$inc: {view: 1}})
